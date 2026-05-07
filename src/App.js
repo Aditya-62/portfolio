@@ -171,7 +171,7 @@ export default function App() {
 
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-amber-400 flex items-center justify-center text-sm font-black glow-pulse shadow-lg">A</div>
-            <span className="text-xl font-black animated-gradient">Aditya Pratap Singh</span>
+            <span className="text-base sm:text-lg font-black animated-gradient">Aditya Pratap Singh</span>
           </div>
 
           {/* Desktop links */}
@@ -214,13 +214,13 @@ export default function App() {
       </nav>
 
       {/* ================= HERO ================= */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-20 dot-grid">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 dot-grid">
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {["p1","p2","p3","p4","p5","p6"].map(p => <div key={p} className={`particle ${p}`}></div>)}
         </div>
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10 w-full">
 
           {/* LEFT */}
           <div>
@@ -229,7 +229,7 @@ export default function App() {
               Available for opportunities
             </div>
 
-            <h1 className="fade-in-up delay-1 text-5xl md:text-7xl font-black leading-[1.1] mb-5">
+            <h1 className="fade-in-up delay-1 text-4xl sm:text-5xl md:text-7xl font-black leading-[1.1] mb-5">
               Hi, I'm
               <span className="block animated-gradient mt-1">Aditya Pratap</span>
               <span className="block animated-gradient">Singh</span>
@@ -244,22 +244,22 @@ export default function App() {
               cloud computing, and building scalable user-centric applications.
             </p>
 
-            <div className="fade-in-up delay-4 flex flex-wrap gap-4">
-              <a href="#projects" className="group px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 font-semibold hover:scale-105 transition duration-300 shadow-[0_0_30px_rgba(124,58,237,0.4)] flex items-center gap-2">
+            <div className="fade-in-up delay-4 flex flex-col sm:flex-row flex-wrap gap-3">
+              <a href="#projects" className="group px-6 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 font-semibold hover:scale-105 transition duration-300 shadow-[0_0_30px_rgba(124,58,237,0.4)] flex items-center justify-center gap-2 text-sm">
                 View Projects
                 <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
               </a>
-              <a href="#contact" className="px-8 py-4 rounded-2xl border border-violet-500/30 font-semibold hover:border-amber-400/60 hover:bg-amber-400/5 hover:text-amber-300 transition duration-300">
+              <a href="#contact" className="px-6 py-3 rounded-2xl border border-violet-500/30 font-semibold hover:border-amber-400/60 hover:bg-amber-400/5 hover:text-amber-300 transition duration-300 text-sm text-center">
                 Contact Me
               </a>
-              <a href="/Aditya_Resume.pdf" download className="px-8 py-4 rounded-2xl border border-emerald-500/30 text-emerald-400 font-semibold hover:border-emerald-400/60 hover:bg-emerald-400/5 transition duration-300 flex items-center gap-2">
+              <a href="/Aditya_Resume.pdf" download className="px-6 py-3 rounded-2xl border border-emerald-500/30 text-emerald-400 font-semibold hover:border-emerald-400/60 hover:bg-emerald-400/5 transition duration-300 flex items-center justify-center gap-2 text-sm">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                 Download CV
               </a>
             </div>
 
             {/* Stats */}
-            <div className="fade-in-up delay-4 flex gap-10 mt-12 pt-8 border-t border-violet-500/15">
+            <div className="fade-in-up delay-4 flex gap-6 sm:gap-10 mt-12 pt-8 border-t border-violet-500/15">
               {[["2+","Years Learning"],["5+","Projects Built"],["3+","Certifications"]].map(([n,l]) => (
                 <div key={l}>
                   <p className="text-2xl font-black gold-text">{n}</p>
@@ -270,8 +270,8 @@ export default function App() {
           </div>
 
           {/* RIGHT — 3D Card */}
-          <div className="flex justify-center">
-            <TiltCard className="relative w-[360px] rounded-[32px] bg-white/[0.04] backdrop-blur-2xl border border-violet-500/20 overflow-hidden">
+          <div className="flex justify-center mt-10 md:mt-0">
+            <TiltCard className="relative w-full max-w-[340px] rounded-[32px] bg-white/[0.04] backdrop-blur-2xl border border-violet-500/20 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/8 via-transparent to-amber-500/5 pointer-events-none"></div>
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent"></div>
 
@@ -336,14 +336,14 @@ export default function App() {
       <section id="about" className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
 
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">Who I Am</p>
-            <h2 className="text-5xl font-black section-title mb-16">About Me</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">About Me</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
 
-            <TiltCard className="rounded-3xl bg-white/[0.03] border border-violet-500/15 p-10 backdrop-blur-sm">
+            <TiltCard className="rounded-3xl bg-white/[0.03] border border-violet-500/15 p-6 sm:p-10 backdrop-blur-sm">
               <div className="tilt-card-inner">
                 <div className="relative w-28 h-28 mx-auto mb-6">
                   <div className="w-28 h-28 rounded-3xl overflow-hidden border-2 border-violet-500/30 shadow-[0_0_40px_rgba(139,92,246,0.3)]">
@@ -389,7 +389,7 @@ export default function App() {
                   <span className="text-2xl">{icon}</span>
                   <div>
                     <p className="text-xs text-slate-600 uppercase tracking-wider font-semibold">{label}</p>
-                    <p className="text-slate-300 font-medium group-hover:text-amber-300 transition-colors duration-200">{value}</p>
+                    <p className="text-slate-300 font-medium group-hover:text-amber-300 transition-colors duration-200 text-sm break-words">{value}</p>
                   </div>
                 </div>
               ))}
@@ -405,12 +405,11 @@ export default function App() {
       <section className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
 
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-4">My Background</p>
-            <h2 className="text-5xl font-black section-title mb-16">Education</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Education</h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { degree:"B.Tech CSE",    icon:"🎓", school:"Centurion University, Odisha",    year:"2023 – 2027",   detail:"CGPA: 7.81 / 10",    grad:"from-violet-600/15 to-indigo-600/15", border:"border-violet-500/25" },
               { degree:"Intermediate",  icon:"📚", school:"Kendriya Vidyalaya Sangathan",    year:"Completed 2023",detail:"Muzaffarpur, Bihar",   grad:"from-amber-500/15 to-orange-500/15",  border:"border-amber-500/25" },
@@ -437,12 +436,11 @@ export default function App() {
       <section id="skills" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">What I Know</p>
-            <h2 className="text-5xl font-black section-title mb-16">Skills</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Skills</h2>
           </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5">
             {skills.map(({ name, icon, color }) => (
               <div key={name} className="skill-badge p-5 rounded-2xl bg-white/[0.03] border border-violet-500/10 text-center cursor-default">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-2xl mx-auto mb-3 shadow-lg`}>
@@ -462,12 +460,11 @@ export default function App() {
       <section id="experience" className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
 
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-4">My Journey</p>
-            <h2 className="text-5xl font-black section-title mb-16">Experience</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Experience</h2>
           </div>
-
-          <TiltCard className="p-10 rounded-3xl bg-gradient-to-br from-violet-600/8 to-amber-500/5 border border-violet-500/20 backdrop-blur-sm">
+          <TiltCard className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-violet-600/8 to-amber-500/5 border border-violet-500/20 backdrop-blur-sm">
             <div className="tilt-card-inner">
 
               <div className="flex items-start gap-5 mb-8">
@@ -475,7 +472,7 @@ export default function App() {
                   💼
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Web Developer Intern</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold">Web Developer Intern</h3>
                   <p className="text-violet-400 font-semibold">DIGISAMAKSH</p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -516,11 +513,11 @@ export default function App() {
       {/* ================= CERTIFICATIONS ================= */}
       <section className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-4">Achievements</p>
-            <h2 className="text-5xl font-black section-title mb-16">Certifications</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Certifications</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
               { name:"AWS Cloud Practitioner",     org:"Amazon Web Services", year:"2024", icon:"☁️",  color:"from-orange-500/20 to-yellow-500/20", border:"border-orange-500/25" },
               { name:"Azure Fundamentals AZ-900",   org:"Microsoft Azure",     year:"2024", icon:"🔷", color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
@@ -547,11 +544,11 @@ export default function App() {
       {/* ================= CODING PROFILES ================= */}
       <section className="py-32 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">Coding Activity</p>
-            <h2 className="text-5xl font-black section-title mb-16">Coding Profiles</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Coding Profiles</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
               { platform:"LeetCode",   handle:"@aditya_pratap",  problems:"150+", rating:"1400+", icon:"🟨", color:"from-yellow-500/15 to-orange-500/15", border:"border-yellow-500/25", url:"https://leetcode.com" },
               { platform:"HackerRank", handle:"@sadityapratap",  problems:"200+", rating:"5★",    icon:"🟩", color:"from-green-500/15 to-emerald-500/15", border:"border-green-500/25",  url:"https://hackerrank.com" },
@@ -583,12 +580,11 @@ export default function App() {
       <section id="projects" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">What I've Built</p>
-            <h2 className="text-5xl font-black section-title mb-16">Projects</h2>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Projects</h2>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-10">
             {projects.map(({ title, desc, tags, gradient, icon, github, live }) => (
               <div key={title} className="project-card rounded-3xl bg-white/[0.03] border border-violet-500/15 overflow-hidden group">
                 <div className={`h-52 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
@@ -596,7 +592,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#04070f]/90 to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-amber-300 transition-colors duration-300">{title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 group-hover:text-amber-300 transition-colors duration-300">{title}</h3>
                   <p className="text-slate-500 leading-relaxed mb-5">{desc}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {tags.map(tag => (
@@ -631,37 +627,29 @@ export default function App() {
       <section id="contact" className="py-32 px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
 
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-4">Get In Touch</p>
-            <h2 className="text-5xl font-black section-title mb-8">Contact Me</h2>
-            <p className="text-slate-500 text-lg mt-10">Let's build something amazing together.</p>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-8">Contact Me</h2>
+            <p className="text-slate-500 text-base sm:text-lg mt-10">Let's build something amazing together.</p>
           </div>
-
-          <TiltCard className="p-10 rounded-3xl bg-white/[0.03] border border-violet-500/15 backdrop-blur-sm">
+          <TiltCard className="p-5 sm:p-10 rounded-3xl bg-white/[0.03] border border-violet-500/15 backdrop-blur-sm">
             <div className="tilt-card-inner">
 
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
 
-                <div className="grid md:grid-cols-2 gap-5">
-                  <input type="text"  name="from_name"  placeholder="Your Name"         required className="contact-input w-full px-5 py-4 rounded-2xl placeholder-slate-700" />
-                  <input type="email" name="from_email" placeholder="Your Email"        required className="contact-input w-full px-5 py-4 rounded-2xl placeholder-slate-700" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input type="text"  name="from_name"  placeholder="Your Name"  required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
+                  <input type="email" name="from_email" placeholder="Your Email" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
                 </div>
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="contact-input flex items-center rounded-2xl overflow-hidden">
                     <CountryCodePicker onChange={setCountryCode} />
-                    <input
-                      type="tel"
-                      name="from_phone"
-                      placeholder="Phone Number"
-                      maxLength={15}
-                      onInput={e => e.target.value = e.target.value.replace(/\D/g, "").slice(0, 15)}
-                      className="w-full px-4 py-4 bg-transparent outline-none placeholder-slate-700 text-white"
-                    />
+                    <input type="tel" name="from_phone" placeholder="Phone Number" maxLength={15} onInput={e => e.target.value = e.target.value.replace(/\D/g, "").slice(0, 15)} className="w-full px-3 py-3 bg-transparent outline-none placeholder-slate-700 text-white text-sm" />
                     <input type="hidden" name="country_code" value={countryCode} />
                   </div>
-                  <input type="text"  name="subject"    placeholder="Subject"           required className="contact-input w-full px-5 py-4 rounded-2xl placeholder-slate-700" />
+                  <input type="text" name="subject" placeholder="Subject" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
                 </div>
-                <textarea name="message" rows="5" placeholder="Your Message" required className="contact-input w-full px-5 py-4 rounded-2xl placeholder-slate-700 resize-none"></textarea>
+                <textarea name="message" rows="4" placeholder="Your Message" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 resize-none text-sm"></textarea>
 
                 <button
                   type="submit"
@@ -695,7 +683,7 @@ export default function App() {
 
       {/* ================= FOOTER ================= */}
       <footer className="py-10 px-6 border-t border-violet-500/10 relative z-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-5 text-center md:flex-row md:justify-between md:text-left">
 
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-amber-400 flex items-center justify-center text-sm font-black">A</div>
