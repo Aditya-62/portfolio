@@ -514,15 +514,16 @@ export default function App() {
       <section className="py-16 sm:py-32 px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-20">
-            <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-4">Achievements</p>
-            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Certifications</h2>
+            <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-3">Achievements</p>
+            <h2 className="text-4xl sm:text-5xl font-black mb-6">Certifications</h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-violet-500 to-amber-400 rounded-full mx-auto"></div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { name:"AWS Cloud Practitioner",     org:"Amazon Web Services", year:"2024", icon:"☁️",  color:"from-orange-500/20 to-yellow-500/20", border:"border-orange-500/25", badge:"text-orange-400" },
-              { name:"Azure Fundamentals AZ-900",   org:"Microsoft Azure",     year:"2024", icon:"🔷", color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25",  badge:"text-blue-400" },
-              { name:"Full Stack Web Development", org:"Coursera",            year:"2023", icon:"🌐", color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25", badge:"text-violet-400" },
-            ].map(({ name, org, year, icon, color, border, badge }) => (
+              { name:"AWS Cloud Practitioner",     org:"Amazon Web Services", year:"2024", icon:"☁️",  color:"from-orange-500/20 to-yellow-500/20", border:"border-orange-500/25" },
+              { name:"Azure Fundamentals AZ-900",   org:"Microsoft Azure",     year:"2024", icon:"🔷", color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
+              { name:"Full Stack Web Development", org:"Coursera",            year:"2023", icon:"🌐", color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
+            ].map(({ name, org, year, icon, color, border }) => (
               <div key={name} className={`flex items-center gap-4 p-4 sm:p-6 rounded-2xl bg-gradient-to-r ${color} border ${border} backdrop-blur-sm hover:-translate-y-1 transition-all duration-300`}>
                 <div className="text-3xl sm:text-4xl flex-shrink-0">{icon}</div>
                 <div className="flex-1 min-w-0">
