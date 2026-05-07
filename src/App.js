@@ -511,29 +511,31 @@ export default function App() {
       <div className="gradient-divider"></div>
 
       {/* ================= CERTIFICATIONS ================= */}
-      <section className="py-32 px-6 relative z-10">
+      <section className="py-16 sm:py-32 px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-20">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-4">Achievements</p>
             <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Certifications</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="flex flex-col gap-4">
             {[
-              { name:"AWS Cloud Practitioner",     org:"Amazon Web Services", year:"2024", icon:"☁️",  color:"from-orange-500/20 to-yellow-500/20", border:"border-orange-500/25" },
-              { name:"Azure Fundamentals AZ-900",   org:"Microsoft Azure",     year:"2024", icon:"🔷", color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
-              { name:"Full Stack Web Development", org:"Coursera",            year:"2023", icon:"🌐", color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
-            ].map(({ name, org, year, icon, color, border }) => (
-              <TiltCard key={name} className={`p-5 sm:p-7 rounded-3xl bg-gradient-to-br ${color} border ${border} backdrop-blur-sm`}>
-                <div className="tilt-card-inner">
-                  <div className="text-3xl sm:text-4xl mb-3">{icon}</div>
-                  <h3 className="text-base sm:text-lg font-bold mb-2 leading-snug">{name}</h3>
-                  <p className="text-slate-400 text-sm mb-1">{org}</p>
-                  <p className="text-amber-400 text-xs font-semibold">{year}</p>
-                  <div className="mt-3 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+              { name:"AWS Cloud Practitioner",     org:"Amazon Web Services", year:"2024", icon:"☁️",  color:"from-orange-500/20 to-yellow-500/20", border:"border-orange-500/25", badge:"text-orange-400" },
+              { name:"Azure Fundamentals AZ-900",   org:"Microsoft Azure",     year:"2024", icon:"🔷", color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25",  badge:"text-blue-400" },
+              { name:"Full Stack Web Development", org:"Coursera",            year:"2023", icon:"🌐", color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25", badge:"text-violet-400" },
+            ].map(({ name, org, year, icon, color, border, badge }) => (
+              <div key={name} className={`flex items-center gap-4 p-4 sm:p-6 rounded-2xl bg-gradient-to-r ${color} border ${border} backdrop-blur-sm hover:-translate-y-1 transition-all duration-300`}>
+                <div className="text-3xl sm:text-4xl flex-shrink-0">{icon}</div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm sm:text-base font-bold text-white leading-snug">{name}</h3>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-0.5">{org}</p>
+                </div>
+                <div className="flex-shrink-0 text-right">
+                  <p className="text-amber-400 text-xs font-bold">{year}</p>
+                  <div className="mt-1 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             ))}
           </div>
         </div>
