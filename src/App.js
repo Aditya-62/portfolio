@@ -522,59 +522,78 @@ export default function App() {
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-3">Achievements</p>
             <h2 className="text-4xl sm:text-5xl font-black mb-6">Certifications</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-violet-500 to-amber-400 rounded-full mx-auto"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-violet-500 to-amber-400 rounded-full mx-auto mb-4"></div>
+            <p className="text-slate-500 text-sm">Click on any certificate to view it</p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-4 mb-10">
+            {[["10", "Total"], ["6", "Technical"], ["4", "Participation"]].map(([n, l]) => (
+              <div key={l} className="text-center p-4 rounded-2xl bg-white/[0.03] border border-violet-500/10">
+                <p className="text-2xl font-black gold-text">{n}</p>
+                <p className="text-slate-500 text-xs mt-1">{l}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-2">
             {[
-              { name: "IT Internship Completion",        org: "DIGISAMAKSH Pvt. Ltd.",            date: "June – Aug 2025", type: "Internship", color: "violet", src: certInternship, isPdf: false },
-              { name: "AWS Cloud Technical Essentials",  org: "Coursera × Amazon Web Services",    date: "2025",           type: "Cloud",      color: "orange", src: "/cert-aws.pdf",     isPdf: true  },
-              { name: "Angular Course Completion",       org: "Infosys Springboard",               date: "2026",           type: "Frontend",   color: "red",    src: "/cert-angular.pdf", isPdf: true  },
-              { name: "GeeksforGeeks CUTM Training",     org: "GeeksforGeeks (16-week Program)",   date: "2025",           type: "Training",   color: "green",  src: "/cert-gfg.pdf",     isPdf: true  },
-              { name: "Mastering Web3",                  org: "UNICI Institute for the Future",    date: "2026",           type: "Blockchain", color: "amber",  src: "/cert-web3.pdf",    isPdf: true  },
-              { name: "AI Agents with UiPath",           org: "GeeksforGeeks × UiPath Workshop",   date: "2025",           type: "AI / ML",    color: "blue",   src: certUiPath,        isPdf: false },
-              { name: "Docker & Kubernetes",             org: "Scaler Masterclass",                date: "2025",           type: "DevOps",     color: "cyan",   src: certDocker,        isPdf: false },
-              { name: "ML Ops Fundamentals",             org: "Scaler Masterclass",                date: "2025",           type: "AI / ML",    color: "purple", src: certMLOps,         isPdf: false },
-              { name: "Microsoft SDE Masterclass",       org: "Scaler Masterclass",                date: "2025",           type: "Career",     color: "indigo", src: certSDE,           isPdf: false },
-              { name: "Viksit Bharat Young Leaders",     org: "Ministry of Youth Affairs & Sports",date: "2025",           type: "Leadership", color: "emerald",src: certVBYLD,         isPdf: false },
-            ].map(({ name, org, date, type, color, src, isPdf }) => {
+              { name: "IT Internship Completion",        org: "DIGISAMAKSH Pvt. Ltd.",             date: "June – Aug 2025", type: "Internship", color: "violet", src: certInternship, isPdf: false },
+              { name: "AWS Cloud Technical Essentials",  org: "Coursera × Amazon Web Services",     date: "2025",           type: "Cloud",      color: "orange", src: "/cert-aws.pdf",      isPdf: true  },
+              { name: "Angular Course Completion",       org: "Infosys Springboard",                date: "2026",           type: "Frontend",   color: "red",    src: "/cert-angular.pdf",  isPdf: true  },
+              { name: "GeeksforGeeks CUTM Training",     org: "GeeksforGeeks (16-week Program)",    date: "2025",           type: "Training",   color: "green",  src: "/cert-gfg.pdf",      isPdf: true  },
+              { name: "Mastering Web3",                  org: "UNICI Institute for the Future",     date: "2026",           type: "Blockchain", color: "amber",  src: "/cert-web3.pdf",     isPdf: true  },
+              { name: "AI Agents with UiPath",           org: "GeeksforGeeks × UiPath Workshop",    date: "2025",           type: "AI / ML",    color: "blue",   src: certUiPath,         isPdf: false },
+              { name: "Docker & Kubernetes",             org: "Scaler Masterclass",                 date: "2025",           type: "DevOps",     color: "cyan",   src: certDocker,         isPdf: false },
+              { name: "ML Ops Fundamentals",             org: "Scaler Masterclass",                 date: "2025",           type: "AI / ML",    color: "purple", src: certMLOps,          isPdf: false },
+              { name: "Microsoft SDE Masterclass",       org: "Scaler Masterclass",                 date: "2025",           type: "Career",     color: "indigo", src: certSDE,            isPdf: false },
+              { name: "Viksit Bharat Young Leaders",     org: "Ministry of Youth Affairs & Sports", date: "2025",           type: "Leadership", color: "emerald",src: certVBYLD,          isPdf: false },
+            ].map(({ name, org, date, type, color, src, isPdf }, i) => {
               const colorMap = {
-                violet:  "text-violet-400  border-violet-500/20  bg-violet-500/10",
-                orange:  "text-orange-400  border-orange-500/20  bg-orange-500/10",
-                red:     "text-red-400     border-red-500/20     bg-red-500/10",
-                green:   "text-green-400   border-green-500/20   bg-green-500/10",
-                amber:   "text-amber-400   border-amber-500/20   bg-amber-500/10",
-                blue:    "text-blue-400    border-blue-500/20    bg-blue-500/10",
-                cyan:    "text-cyan-400    border-cyan-500/20    bg-cyan-500/10",
-                purple:  "text-purple-400  border-purple-500/20  bg-purple-500/10",
-                indigo:  "text-indigo-400  border-indigo-500/20  bg-indigo-500/10",
-                emerald: "text-emerald-400 border-emerald-500/20 bg-emerald-500/10",
+                violet:  { text: "text-violet-400",  border: "border-violet-500/25",  bg: "bg-violet-500/10",  glow: "group-hover:shadow-violet-500/20"  },
+                orange:  { text: "text-orange-400",  border: "border-orange-500/25",  bg: "bg-orange-500/10",  glow: "group-hover:shadow-orange-500/20"  },
+                red:     { text: "text-red-400",     border: "border-red-500/25",     bg: "bg-red-500/10",     glow: "group-hover:shadow-red-500/20"     },
+                green:   { text: "text-green-400",   border: "border-green-500/25",   bg: "bg-green-500/10",   glow: "group-hover:shadow-green-500/20"   },
+                amber:   { text: "text-amber-400",   border: "border-amber-500/25",   bg: "bg-amber-500/10",   glow: "group-hover:shadow-amber-500/20"   },
+                blue:    { text: "text-blue-400",    border: "border-blue-500/25",    bg: "bg-blue-500/10",    glow: "group-hover:shadow-blue-500/20"    },
+                cyan:    { text: "text-cyan-400",    border: "border-cyan-500/25",    bg: "bg-cyan-500/10",    glow: "group-hover:shadow-cyan-500/20"    },
+                purple:  { text: "text-purple-400",  border: "border-purple-500/25",  bg: "bg-purple-500/10",  glow: "group-hover:shadow-purple-500/20"  },
+                indigo:  { text: "text-indigo-400",  border: "border-indigo-500/25",  bg: "bg-indigo-500/10",  glow: "group-hover:shadow-indigo-500/20"  },
+                emerald: { text: "text-emerald-400", border: "border-emerald-500/25", bg: "bg-emerald-500/10", glow: "group-hover:shadow-emerald-500/20" },
               };
+              const c = colorMap[color];
               return (
                 <div
                   key={name}
                   onClick={() => window.open(src, "_blank")}
-                  className="group flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-violet-500/10 hover:border-violet-500/30 hover:bg-white/[0.06] transition-all duration-300 cursor-pointer"
+                  className={`group flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-violet-500/25 hover:bg-white/[0.05] hover:shadow-lg transition-all duration-300 cursor-pointer`}
                 >
+                  {/* Number */}
+                  <div className={`w-8 h-8 rounded-xl ${c.bg} ${c.border} border flex items-center justify-center flex-shrink-0`}>
+                    <span className={`text-xs font-black ${c.text}`}>{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-violet-500/30 transition-all duration-300">
+                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity">
                     {isPdf
-                      ? <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
-                      : <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                      ? <svg className={`w-4 h-4 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                      : <svg className={`w-4 h-4 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
                     }
                   </div>
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <p className="text-white font-semibold text-sm sm:text-base truncate group-hover:text-violet-300 transition-colors duration-200">{name}</p>
-                    <p className="text-slate-500 text-xs mt-0.5 truncate">{org}</p>
+                    <p className={`font-semibold text-sm sm:text-base truncate transition-colors duration-200 group-hover:${c.text}`}>{name}</p>
+                    <p className="text-slate-600 text-xs mt-0.5 truncate">{org}</p>
                   </div>
 
-                  {/* Right side */}
-                  <div className="flex items-center gap-2 flex-shrink-0">
-                    <span className={`hidden sm:block px-2.5 py-1 rounded-lg text-xs font-semibold border ${colorMap[color]}`}>{type}</span>
-                    <span className="text-slate-500 text-xs">{date}</span>
-                    <svg className="w-4 h-4 text-slate-600 group-hover:text-violet-400 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  {/* Right */}
+                  <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                    <span className={`hidden sm:block px-2.5 py-1 rounded-lg text-xs font-bold border ${c.bg} ${c.border} ${c.text}`}>{type}</span>
+                    <span className="text-slate-600 text-xs font-medium">{date}</span>
+                    <div className={`w-7 h-7 rounded-lg ${c.bg} ${c.border} border flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200`}>
+                      <svg className={`w-3.5 h-3.5 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </div>
                   </div>
                 </div>
               );
