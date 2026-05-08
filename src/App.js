@@ -157,7 +157,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#04070f] text-white overflow-hidden noise">
+    <div className="bg-[#030712] text-white overflow-hidden noise">
       <Loader />
       <CustomCursor />
       <ScrollProgress />
@@ -166,9 +166,10 @@ export default function App() {
 
       {/* ── Ambient orbs ── */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-10%] left-[15%]  w-[700px] h-[700px] bg-violet-700/10 blur-[180px] rounded-full"></div>
-        <div className="absolute bottom-[-5%] right-[10%] w-[500px] h-[500px] bg-amber-500/8  blur-[150px] rounded-full"></div>
-        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-indigo-600/6 blur-[130px] rounded-full"></div>
+        <div className="absolute top-[-15%] left-[-5%] w-[800px] h-[800px] bg-purple-600/10 blur-[200px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-rose-500/8 blur-[180px] rounded-full"></div>
+        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 w-[500px] h-[500px] bg-teal-500/6 blur-[150px] rounded-full"></div>
+        <div className="absolute top-[10%] right-[20%] w-[300px] h-[300px] bg-sky-500/6 blur-[120px] rounded-full"></div>
       </div>
 
       {/* ================= NAVBAR ================= */}
@@ -550,31 +551,32 @@ export default function App() {
               { name: "Viksit Bharat Young Leaders",     org: "Ministry of Youth Affairs & Sports", date: "2025",           type: "Leadership", color: "emerald",src: certVBYLD,          isPdf: false },
             ].map(({ name, org, date, type, color, src, isPdf }, i) => {
               const colorMap = {
-                violet:  { text: "text-violet-400",  border: "border-violet-500/25",  bg: "bg-violet-500/10",  glow: "group-hover:shadow-violet-500/20"  },
-                orange:  { text: "text-orange-400",  border: "border-orange-500/25",  bg: "bg-orange-500/10",  glow: "group-hover:shadow-orange-500/20"  },
-                red:     { text: "text-red-400",     border: "border-red-500/25",     bg: "bg-red-500/10",     glow: "group-hover:shadow-red-500/20"     },
-                green:   { text: "text-green-400",   border: "border-green-500/25",   bg: "bg-green-500/10",   glow: "group-hover:shadow-green-500/20"   },
-                amber:   { text: "text-amber-400",   border: "border-amber-500/25",   bg: "bg-amber-500/10",   glow: "group-hover:shadow-amber-500/20"   },
-                blue:    { text: "text-blue-400",    border: "border-blue-500/25",    bg: "bg-blue-500/10",    glow: "group-hover:shadow-blue-500/20"    },
-                cyan:    { text: "text-cyan-400",    border: "border-cyan-500/25",    bg: "bg-cyan-500/10",    glow: "group-hover:shadow-cyan-500/20"    },
-                purple:  { text: "text-purple-400",  border: "border-purple-500/25",  bg: "bg-purple-500/10",  glow: "group-hover:shadow-purple-500/20"  },
-                indigo:  { text: "text-indigo-400",  border: "border-indigo-500/25",  bg: "bg-indigo-500/10",  glow: "group-hover:shadow-indigo-500/20"  },
-                emerald: { text: "text-emerald-400", border: "border-emerald-500/25", bg: "bg-emerald-500/10", glow: "group-hover:shadow-emerald-500/20" },
+                violet:  { text: "text-violet-400",  border: "border-violet-500/30",  bg: "bg-violet-500/10",  num: "#a855f7" },
+                orange:  { text: "text-orange-400",  border: "border-orange-500/30",  bg: "bg-orange-500/10",  num: "#fb923c" },
+                red:     { text: "text-rose-400",    border: "border-rose-500/30",    bg: "bg-rose-500/10",    num: "#f43f5e" },
+                green:   { text: "text-emerald-400", border: "border-emerald-500/30", bg: "bg-emerald-500/10", num: "#10b981" },
+                amber:   { text: "text-amber-400",   border: "border-amber-500/30",   bg: "bg-amber-500/10",   num: "#fbbf24" },
+                blue:    { text: "text-sky-400",     border: "border-sky-500/30",     bg: "bg-sky-500/10",     num: "#38bdf8" },
+                cyan:    { text: "text-teal-400",    border: "border-teal-500/30",    bg: "bg-teal-500/10",    num: "#14b8a6" },
+                purple:  { text: "text-purple-400",  border: "border-purple-500/30",  bg: "bg-purple-500/10",  num: "#a855f7" },
+                indigo:  { text: "text-indigo-400",  border: "border-indigo-500/30",  bg: "bg-indigo-500/10",  num: "#6366f1" },
+                emerald: { text: "text-teal-400",    border: "border-teal-500/30",    bg: "bg-teal-500/10",    num: "#14b8a6" },
               };
               const c = colorMap[color];
               return (
                 <div
                   key={name}
                   onClick={() => window.open(src, "_blank")}
-                  className={`group flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-violet-500/25 hover:bg-white/[0.05] hover:shadow-lg transition-all duration-300 cursor-pointer`}
+                  className={`cert-row group flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-purple-500/20 hover:bg-white/[0.04] hover:shadow-lg transition-all duration-300 cursor-pointer`}
                 >
                   {/* Number */}
-                  <div className={`w-8 h-8 rounded-xl ${c.bg} ${c.border} border flex items-center justify-center flex-shrink-0`}>
+                  <div className={`w-9 h-9 rounded-xl ${c.bg} ${c.border} border flex items-center justify-center flex-shrink-0`}
+                    style={{ boxShadow: `0 0 12px ${c.num}40` }}>
                     <span className={`text-xs font-black ${c.text}`}>{String(i + 1).padStart(2, "0")}</span>
                   </div>
 
                   {/* Icon */}
-                  <div className="w-8 h-8 flex items-center justify-center flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity">
+                  <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center flex-shrink-0`}>
                     {isPdf
                       ? <svg className={`w-4 h-4 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                       : <svg className={`w-4 h-4 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
@@ -583,7 +585,7 @@ export default function App() {
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <p className={`font-semibold text-sm sm:text-base truncate transition-colors duration-200 group-hover:${c.text}`}>{name}</p>
+                    <p className={`font-semibold text-sm sm:text-base truncate text-slate-200 group-hover:${c.text} transition-colors duration-200`}>{name}</p>
                     <p className="text-slate-600 text-xs mt-0.5 truncate">{org}</p>
                   </div>
 
@@ -591,7 +593,8 @@ export default function App() {
                   <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                     <span className={`hidden sm:block px-2.5 py-1 rounded-lg text-xs font-bold border ${c.bg} ${c.border} ${c.text}`}>{type}</span>
                     <span className="text-slate-600 text-xs font-medium">{date}</span>
-                    <div className={`w-7 h-7 rounded-lg ${c.bg} ${c.border} border flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200`}>
+                    <div className={`w-7 h-7 rounded-lg ${c.bg} ${c.border} border flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}
+                      style={{ boxShadow: `0 0 8px ${c.num}30` }}>
                       <svg className={`w-3.5 h-3.5 ${c.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
                     </div>
                   </div>
