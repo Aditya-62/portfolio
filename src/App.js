@@ -24,6 +24,7 @@ ReactGA.initialize(GA_ID);
 /* ── 3D Tilt Card ── */
 function TiltCard({ children, className = "" }) {
   const ref = useRef(null);
+
   const handleMouseMove = (e) => {
     const card = ref.current;
     const rect = card.getBoundingClientRect();
@@ -34,8 +35,31 @@ function TiltCard({ children, className = "" }) {
   const handleMouseLeave = () => {
     ref.current.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
   };
+
+  const handleTouchMove = (e) => {
+    const card = ref.current;
+    const rect = card.getBoundingClientRect();
+    const touch = e.touches[0];
+    const rotateX = (((touch.clientY - rect.top)  / rect.height) - 0.5) * -12;
+    const rotateY = (((touch.clientX - rect.left) / rect.width)  - 0.5) *  12;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
+    card.style.boxShadow = "0 20px 60px rgba(168,85,247,0.3), 0 0 40px rgba(244,63,94,0.15)";
+  };
+  const handleTouchEnd = () => {
+    const card = ref.current;
+    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    card.style.boxShadow = "";
+  };
+
   return (
-    <div ref={ref} className={`tilt-card ${className}`} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <div
+      ref={ref}
+      className={`tilt-card ${className}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {children}
     </div>
   );

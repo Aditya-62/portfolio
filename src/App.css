@@ -126,6 +126,17 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
 }
 .tilt-card-inner { transform: translateZ(30px); }
 
+/* Mobile — disable tilt, use scale instead */
+@media (max-width: 768px) {
+  .tilt-card { transform-style: flat !important; }
+  .tilt-card:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 10px 40px rgba(168,85,247,0.3) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  }
+  .tilt-card-inner { transform: none !important; }
+}
+
 /* ══════════════════════════════════════
    GLOW PULSE
 ══════════════════════════════════════ */
@@ -182,6 +193,15 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
 }
 .skill-badge:hover::before { opacity: 1; }
 
+/* Mobile skill badge */
+@media (max-width: 768px) {
+  .skill-badge:active {
+    transform: scale(0.95) !important;
+    border-color: rgba(168,85,247,0.5) !important;
+    box-shadow: 0 0 20px rgba(168,85,247,0.3) !important;
+  }
+}
+
 /* ══════════════════════════════════════
    PROJECT CARD
 ══════════════════════════════════════ */
@@ -210,6 +230,15 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
     0 0 30px rgba(244,63,94,0.1);
 }
 .project-card:hover::before { opacity: 1; }
+
+/* Mobile project card */
+@media (max-width: 768px) {
+  .project-card { transform-style: flat !important; }
+  .project-card:active {
+    transform: scale(0.98) !important;
+    box-shadow: 0 10px 40px rgba(168,85,247,0.25) !important;
+  }
+}
 
 /* ══════════════════════════════════════
    TIMELINE DOT
@@ -285,9 +314,16 @@ h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
 .cert-row:hover { transform: translateX(6px); }
 .cert-row:hover::before { transform: scaleY(1); }
 
-/* ══════════════════════════════════════
-   SHIMMER EFFECT
-══════════════════════════════════════ */
+/* ── Touch device animations ── */
+@media (hover: none) {
+  .tilt-card { animation: mobileFloat 4s ease-in-out infinite; }
+  @keyframes mobileFloat {
+    0%,100% { transform: translateY(0) scale(1); box-shadow: 0 10px 40px rgba(168,85,247,0.2); }
+    50%      { transform: translateY(-6px) scale(1.01); box-shadow: 0 20px 60px rgba(168,85,247,0.35); }
+  }
+  .cert-row:active { transform: translateX(8px) !important; background: rgba(168,85,247,0.06) !important; }
+  .skill-badge:active { transform: scale(0.94) !important; box-shadow: 0 0 25px rgba(168,85,247,0.4) !important; }
+}
 @keyframes shimmer {
   0%   { transform: translateX(-100%) skewX(-15deg); }
   100% { transform: translateX(200%) skewX(-15deg); }
