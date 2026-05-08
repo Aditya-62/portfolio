@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import profileImg from "./profile.jpg.webp";
+import certCerti from "./certi.png";
+import certCertificate from "./Certificate.png";
+import certMLP from "./MLP certificate.png";
+import certSDE from "./SDE certificate.png";
 import ReactGA from "react-ga4";
 import emailjs from "@emailjs/browser";
 import CountryCodePicker from "./CountryCodePicker";
@@ -520,19 +524,38 @@ export default function App() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { name:"AWS Cloud Practitioner",     org:"Amazon Web Services", year:"2024", icon:"☁️",  color:"from-orange-500/20 to-yellow-500/20", border:"border-orange-500/25" },
-              { name:"Azure Fundamentals AZ-900",   org:"Microsoft Azure",     year:"2024", icon:"🔷", color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
-              { name:"Full Stack Web Development", org:"Coursera",            year:"2023", icon:"🌐", color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
-            ].map(({ name, org, year, icon, color, border }) => (
-              <div key={name} className={`flex items-center gap-4 p-4 sm:p-6 rounded-2xl bg-gradient-to-r ${color} border ${border} backdrop-blur-sm hover:-translate-y-1 transition-all duration-300`}>
-                <div className="text-3xl sm:text-4xl flex-shrink-0">{icon}</div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-sm sm:text-base font-bold text-white leading-snug">{name}</h3>
-                  <p className="text-slate-400 text-xs sm:text-sm mt-0.5">{org}</p>
+              { name:"DIGISAMAKSH Internship",      org:"DIGISAMAKSH",          year:"2025", img: certCerti,       color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
+              { name:"Web Development Certificate", org:"DIGISAMAKSH",          year:"2025", img: certCertificate, color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
+              { name:"Machine Learning Program",    org:"MLP Institute",        year:"2024", img: certMLP,        color:"from-emerald-500/20 to-teal-500/20", border:"border-emerald-500/25" },
+              { name:"Software Development",        org:"SDE Program",          year:"2024", img: certSDE,        color:"from-orange-500/20 to-amber-500/20",  border:"border-orange-500/25" },
+            ].map(({ name, org, year, img, color, border }) => (
+              <div
+                key={name}
+                className={`group rounded-2xl bg-gradient-to-br ${color} border ${border} overflow-hidden hover:-translate-y-2 transition-all duration-300 cursor-pointer`}
+                onClick={() => window.open(img, "_blank")}
+              >
+                {/* Certificate Image Preview */}
+                <div className="relative h-40 overflow-hidden bg-black/20">
+                  <img
+                    src={img}
+                    alt={name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute top-2 right-2 px-2 py-1 rounded-lg bg-black/50 backdrop-blur-sm text-xs text-white font-semibold">
+                    {year}
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="px-3 py-1.5 rounded-xl bg-white/20 backdrop-blur-sm text-white text-xs font-semibold border border-white/30">
+                      View Certificate
+                    </div>
+                  </div>
                 </div>
-                <div className="flex-shrink-0 text-right">
-                  <p className="text-amber-400 text-xs font-bold">{year}</p>
-                  <div className="mt-1 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+                {/* Info */}
+                <div className="p-4">
+                  <h3 className="text-sm font-bold text-white leading-snug mb-1">{name}</h3>
+                  <p className="text-slate-400 text-xs">{org}</p>
+                  <div className="mt-3 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified
                   </div>
                 </div>
