@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import profileImg from "./profile.jpg.webp";
-import certCerti from "./certi.png";
-import certCertificate from "./Certificate.png";
-import certMLP from "./MLP certificate.png";
-import certSDE from "./SDE certificate.png";
+import certInternship  from "./Internship Completion Certificate – DIGISAMAKSH Private Limited (IT Intern, June–August 2025).jpeg";
+import certUiPath      from "./Certificate of Participation – Build Smarter, Scalable AI Agents with UiPath (GeeksforGeeks + UiPath Workshop).jpeg";
+import certDocker      from "./Certificate of Participation – Fundamentals of Docker & Kubernetes (Scaler Masterclass).png";
+import certMLOps       from "./Certificate of Participation – ML Ops Fundamentals Building, Deploying, and Scaling AI Solutions (Scaler Masterclass).png";
+import certVBYLD       from "./Certificate of Participation – Viksit Bharat Young Leaders Dialogue (VBYLD) 2026 Quiz (Ministry of Youth Affairs & Sports).png";
+import certSDE         from "./Certificate of Participation – What Does It Take to Become a Microsoft SDE (Scaler Masterclass).png";
 import ReactGA from "react-ga4";
 import emailjs from "@emailjs/browser";
 import CountryCodePicker from "./CountryCodePicker";
@@ -517,53 +519,165 @@ export default function App() {
       {/* ================= CERTIFICATIONS ================= */}
       <section className="py-16 sm:py-32 px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-20">
+          <div className="text-center mb-12 sm:mb-16">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-3">Achievements</p>
             <h2 className="text-4xl sm:text-5xl font-black mb-6">Certifications</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-violet-500 to-amber-400 rounded-full mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { name:"DIGISAMAKSH Internship",      org:"DIGISAMAKSH",           year:"2025", img: certCerti,       pdf: null,                    color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
-              { name:"Web Development Certificate", org:"DIGISAMAKSH",           year:"2025", img: certCertificate, pdf: null,                    color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
-              { name:"Machine Learning Program",    org:"MLP Institute",         year:"2024", img: certMLP,         pdf: null,                    color:"from-emerald-500/20 to-teal-500/20", border:"border-emerald-500/25" },
-              { name:"Software Development",        org:"SDE Program",           year:"2024", img: certSDE,         pdf: null,                    color:"from-orange-500/20 to-amber-500/20", border:"border-orange-500/25" },
-              { name:"GeeksforGeeks Certificate",   org:"GeeksforGeeks",         year:"2024", img: null,            pdf: "/cert-gfg.pdf",         color:"from-green-500/20 to-lime-500/20",   border:"border-green-500/25" },
-              { name:"Coursera Certificate",        org:"Coursera",             year:"2024", img: null,            pdf: "/cert-coursera.pdf",    color:"from-blue-400/20 to-cyan-500/20",   border:"border-blue-400/25" },
-              { name:"Infosys Springboard",         org:"Infosys",              year:"2024", img: null,            pdf: "/cert-infosys.pdf",     color:"from-indigo-500/20 to-blue-600/20", border:"border-indigo-500/25" },
-              { name:"Blockchain Certificate",      org:"Blockchain Program",   year:"2024", img: null,            pdf: "/cert-blockchain.pdf",  color:"from-amber-500/20 to-yellow-500/20", border:"border-amber-500/25" },
-            ].map(({ name, org, year, img, pdf, color, border }) => (
-              <div
-                key={name}
-                className={`group rounded-2xl bg-gradient-to-br ${color} border ${border} overflow-hidden hover:-translate-y-2 transition-all duration-300 cursor-pointer`}
-                onClick={() => window.open(img || pdf, "_blank")}
-              >
-                <div className="relative h-40 overflow-hidden bg-black/20">
-                  {img ? (
-                    <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2">
-                      <svg className="w-10 h-10 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                      <span className="text-white/50 text-xs font-medium">PDF Certificate</span>
+              {
+                name: "IT Internship Completion",
+                org:  "DIGISAMAKSH Pvt. Ltd.",
+                date: "June – August 2025",
+                type: "Internship",
+                color: "violet",
+                img:  certInternship,
+                pdf:  null,
+              },
+              {
+                name: "AWS Cloud Technical Essentials",
+                org:  "Coursera × Amazon Web Services",
+                date: "2024",
+                type: "Cloud",
+                color: "orange",
+                img:  null,
+                pdf:  "/cert-aws.pdf",
+              },
+              {
+                name: "Angular Course Completion",
+                org:  "Infosys Springboard",
+                date: "2024",
+                type: "Frontend",
+                color: "red",
+                img:  null,
+                pdf:  "/cert-angular.pdf",
+              },
+              {
+                name: "GeeksforGeeks CUTM Training",
+                org:  "GeeksforGeeks (16-week Program)",
+                date: "2024",
+                type: "Training",
+                color: "green",
+                img:  null,
+                pdf:  "/cert-gfg.pdf",
+              },
+              {
+                name: "Mastering Web3",
+                org:  "UNICI Institute for the Future",
+                date: "2024",
+                type: "Blockchain",
+                color: "amber",
+                img:  null,
+                pdf:  "/cert-web3.pdf",
+              },
+              {
+                name: "AI Agents with UiPath",
+                org:  "GeeksforGeeks × UiPath Workshop",
+                date: "2024",
+                type: "AI / ML",
+                color: "blue",
+                img:  certUiPath,
+                pdf:  null,
+              },
+              {
+                name: "Docker & Kubernetes",
+                org:  "Scaler Masterclass",
+                date: "2024",
+                type: "DevOps",
+                color: "cyan",
+                img:  certDocker,
+                pdf:  null,
+              },
+              {
+                name: "ML Ops Fundamentals",
+                org:  "Scaler Masterclass",
+                date: "2024",
+                type: "AI / ML",
+                color: "purple",
+                img:  certMLOps,
+                pdf:  null,
+              },
+              {
+                name: "Microsoft SDE Masterclass",
+                org:  "Scaler Masterclass",
+                date: "2024",
+                type: "Career",
+                color: "indigo",
+                img:  certSDE,
+                pdf:  null,
+              },
+              {
+                name: "Viksit Bharat Young Leaders",
+                org:  "Ministry of Youth Affairs & Sports",
+                date: "2026",
+                type: "Leadership",
+                color: "emerald",
+                img:  certVBYLD,
+                pdf:  null,
+              },
+            ].map(({ name, org, date, type, color, img, pdf }) => {
+              const colorMap = {
+                violet:  { bg: "from-violet-500/15 to-purple-500/15",  border: "border-violet-500/25",  badge: "bg-violet-500/20 text-violet-300 border-violet-500/30" },
+                orange:  { bg: "from-orange-500/15 to-amber-500/15",   border: "border-orange-500/25",  badge: "bg-orange-500/20 text-orange-300 border-orange-500/30" },
+                red:     { bg: "from-red-500/15 to-rose-500/15",       border: "border-red-500/25",     badge: "bg-red-500/20 text-red-300 border-red-500/30" },
+                green:   { bg: "from-green-500/15 to-emerald-500/15",  border: "border-green-500/25",   badge: "bg-green-500/20 text-green-300 border-green-500/30" },
+                amber:   { bg: "from-amber-500/15 to-yellow-500/15",   border: "border-amber-500/25",   badge: "bg-amber-500/20 text-amber-300 border-amber-500/30" },
+                blue:    { bg: "from-blue-500/15 to-indigo-500/15",    border: "border-blue-500/25",    badge: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
+                cyan:    { bg: "from-cyan-500/15 to-blue-500/15",      border: "border-cyan-500/25",    badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30" },
+                purple:  { bg: "from-purple-500/15 to-pink-500/15",    border: "border-purple-500/25",  badge: "bg-purple-500/20 text-purple-300 border-purple-500/30" },
+                indigo:  { bg: "from-indigo-500/15 to-blue-600/15",    border: "border-indigo-500/25",  badge: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30" },
+                emerald: { bg: "from-emerald-500/15 to-teal-500/15",   border: "border-emerald-500/25", badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
+              };
+              const c = colorMap[color];
+              return (
+                <div
+                  key={name}
+                  onClick={() => window.open(img || pdf, "_blank")}
+                  className={`group relative rounded-2xl bg-gradient-to-br ${c.bg} border ${c.border} overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300`}
+                >
+                  {/* Image / PDF Preview */}
+                  <div className="relative h-44 bg-black/20 overflow-hidden">
+                    {img ? (
+                      <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-3">
+                        <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
+                          <svg className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                        </div>
+                        <span className="text-white/40 text-xs">Click to view PDF</span>
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="px-4 py-2 rounded-xl bg-white/20 backdrop-blur-sm text-white text-xs font-bold border border-white/30">
+                        {img ? "🔍 View Full" : "📄 Open PDF"}
+                      </span>
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute top-2 right-2 px-2 py-1 rounded-lg bg-black/50 backdrop-blur-sm text-xs text-white font-semibold">{year}</div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="px-3 py-1.5 rounded-xl bg-white/20 backdrop-blur-sm text-white text-xs font-semibold border border-white/30">
-                      {img ? "View Certificate" : "Open PDF"}
+                    {/* Type badge top-left */}
+                    <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-lg text-xs font-bold border backdrop-blur-sm ${c.badge}`}>
+                      {type}
+                    </div>
+                    {/* Date top-right */}
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-sm text-white text-xs font-semibold">
+                      {date}
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-4">
+                    <h3 className="text-sm font-bold text-white leading-snug mb-1">{name}</h3>
+                    <p className="text-slate-400 text-xs mb-3">{org}</p>
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      <span className="text-emerald-400 text-xs font-semibold">Verified</span>
                     </div>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-bold text-white leading-snug mb-1">{name}</h3>
-                  <p className="text-slate-400 text-xs">{org}</p>
-                  <div className="mt-3 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Verified
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
