@@ -518,162 +518,63 @@ export default function App() {
 
       {/* ================= CERTIFICATIONS ================= */}
       <section className="py-16 sm:py-32 px-4 sm:px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <p className="text-amber-400 text-xs font-bold tracking-[4px] uppercase mb-3">Achievements</p>
             <h2 className="text-4xl sm:text-5xl font-black mb-6">Certifications</h2>
             <div className="w-16 h-1 bg-gradient-to-r from-violet-500 to-amber-400 rounded-full mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="flex flex-col gap-3">
             {[
-              {
-                name: "IT Internship Completion",
-                org:  "DIGISAMAKSH Pvt. Ltd.",
-                date: "June – August 2025",
-                type: "Internship",
-                color: "violet",
-                img:  certInternship,
-                pdf:  null,
-              },
-              {
-                name: "AWS Cloud Technical Essentials",
-                org:  "Coursera × Amazon Web Services",
-                date: "2024",
-                type: "Cloud",
-                color: "orange",
-                img:  null,
-                pdf:  "/cert-aws.pdf",
-              },
-              {
-                name: "Angular Course Completion",
-                org:  "Infosys Springboard",
-                date: "2024",
-                type: "Frontend",
-                color: "red",
-                img:  null,
-                pdf:  "/cert-angular.pdf",
-              },
-              {
-                name: "GeeksforGeeks CUTM Training",
-                org:  "GeeksforGeeks (16-week Program)",
-                date: "2024",
-                type: "Training",
-                color: "green",
-                img:  null,
-                pdf:  "/cert-gfg.pdf",
-              },
-              {
-                name: "Mastering Web3",
-                org:  "UNICI Institute for the Future",
-                date: "2024",
-                type: "Blockchain",
-                color: "amber",
-                img:  null,
-                pdf:  "/cert-web3.pdf",
-              },
-              {
-                name: "AI Agents with UiPath",
-                org:  "GeeksforGeeks × UiPath Workshop",
-                date: "2024",
-                type: "AI / ML",
-                color: "blue",
-                img:  certUiPath,
-                pdf:  null,
-              },
-              {
-                name: "Docker & Kubernetes",
-                org:  "Scaler Masterclass",
-                date: "2024",
-                type: "DevOps",
-                color: "cyan",
-                img:  certDocker,
-                pdf:  null,
-              },
-              {
-                name: "ML Ops Fundamentals",
-                org:  "Scaler Masterclass",
-                date: "2024",
-                type: "AI / ML",
-                color: "purple",
-                img:  certMLOps,
-                pdf:  null,
-              },
-              {
-                name: "Microsoft SDE Masterclass",
-                org:  "Scaler Masterclass",
-                date: "2024",
-                type: "Career",
-                color: "indigo",
-                img:  certSDE,
-                pdf:  null,
-              },
-              {
-                name: "Viksit Bharat Young Leaders",
-                org:  "Ministry of Youth Affairs & Sports",
-                date: "2026",
-                type: "Leadership",
-                color: "emerald",
-                img:  certVBYLD,
-                pdf:  null,
-              },
-            ].map(({ name, org, date, type, color, img, pdf }) => {
+              { name: "IT Internship Completion",        org: "DIGISAMAKSH Pvt. Ltd.",            date: "June – Aug 2025", type: "Internship", color: "violet", src: certInternship, isPdf: false },
+              { name: "AWS Cloud Technical Essentials",  org: "Coursera × Amazon Web Services",    date: "2024",           type: "Cloud",      color: "orange", src: "/cert-aws.pdf",     isPdf: true  },
+              { name: "Angular Course Completion",       org: "Infosys Springboard",               date: "2024",           type: "Frontend",   color: "red",    src: "/cert-angular.pdf", isPdf: true  },
+              { name: "GeeksforGeeks CUTM Training",     org: "GeeksforGeeks (16-week Program)",   date: "2024",           type: "Training",   color: "green",  src: "/cert-gfg.pdf",     isPdf: true  },
+              { name: "Mastering Web3",                  org: "UNICI Institute for the Future",    date: "2024",           type: "Blockchain", color: "amber",  src: "/cert-web3.pdf",    isPdf: true  },
+              { name: "AI Agents with UiPath",           org: "GeeksforGeeks × UiPath Workshop",   date: "2024",           type: "AI / ML",    color: "blue",   src: certUiPath,        isPdf: false },
+              { name: "Docker & Kubernetes",             org: "Scaler Masterclass",                date: "2024",           type: "DevOps",     color: "cyan",   src: certDocker,        isPdf: false },
+              { name: "ML Ops Fundamentals",             org: "Scaler Masterclass",                date: "2024",           type: "AI / ML",    color: "purple", src: certMLOps,         isPdf: false },
+              { name: "Microsoft SDE Masterclass",       org: "Scaler Masterclass",                date: "2024",           type: "Career",     color: "indigo", src: certSDE,           isPdf: false },
+              { name: "Viksit Bharat Young Leaders",     org: "Ministry of Youth Affairs & Sports",date: "2026",           type: "Leadership", color: "emerald",src: certVBYLD,         isPdf: false },
+            ].map(({ name, org, date, type, color, src, isPdf }) => {
               const colorMap = {
-                violet:  { bg: "from-violet-500/15 to-purple-500/15",  border: "border-violet-500/25",  badge: "bg-violet-500/20 text-violet-300 border-violet-500/30" },
-                orange:  { bg: "from-orange-500/15 to-amber-500/15",   border: "border-orange-500/25",  badge: "bg-orange-500/20 text-orange-300 border-orange-500/30" },
-                red:     { bg: "from-red-500/15 to-rose-500/15",       border: "border-red-500/25",     badge: "bg-red-500/20 text-red-300 border-red-500/30" },
-                green:   { bg: "from-green-500/15 to-emerald-500/15",  border: "border-green-500/25",   badge: "bg-green-500/20 text-green-300 border-green-500/30" },
-                amber:   { bg: "from-amber-500/15 to-yellow-500/15",   border: "border-amber-500/25",   badge: "bg-amber-500/20 text-amber-300 border-amber-500/30" },
-                blue:    { bg: "from-blue-500/15 to-indigo-500/15",    border: "border-blue-500/25",    badge: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-                cyan:    { bg: "from-cyan-500/15 to-blue-500/15",      border: "border-cyan-500/25",    badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30" },
-                purple:  { bg: "from-purple-500/15 to-pink-500/15",    border: "border-purple-500/25",  badge: "bg-purple-500/20 text-purple-300 border-purple-500/30" },
-                indigo:  { bg: "from-indigo-500/15 to-blue-600/15",    border: "border-indigo-500/25",  badge: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30" },
-                emerald: { bg: "from-emerald-500/15 to-teal-500/15",   border: "border-emerald-500/25", badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" },
+                violet:  "text-violet-400  border-violet-500/20  bg-violet-500/10",
+                orange:  "text-orange-400  border-orange-500/20  bg-orange-500/10",
+                red:     "text-red-400     border-red-500/20     bg-red-500/10",
+                green:   "text-green-400   border-green-500/20   bg-green-500/10",
+                amber:   "text-amber-400   border-amber-500/20   bg-amber-500/10",
+                blue:    "text-blue-400    border-blue-500/20    bg-blue-500/10",
+                cyan:    "text-cyan-400    border-cyan-500/20    bg-cyan-500/10",
+                purple:  "text-purple-400  border-purple-500/20  bg-purple-500/10",
+                indigo:  "text-indigo-400  border-indigo-500/20  bg-indigo-500/10",
+                emerald: "text-emerald-400 border-emerald-500/20 bg-emerald-500/10",
               };
-              const c = colorMap[color];
               return (
                 <div
                   key={name}
-                  onClick={() => window.open(img || pdf, "_blank")}
-                  className={`group relative rounded-2xl bg-gradient-to-br ${c.bg} border ${c.border} overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-xl transition-all duration-300`}
+                  onClick={() => window.open(src, "_blank")}
+                  className="group flex items-center gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-violet-500/10 hover:border-violet-500/30 hover:bg-white/[0.06] transition-all duration-300 cursor-pointer"
                 >
-                  {/* Image / PDF Preview */}
-                  <div className="relative h-44 bg-black/20 overflow-hidden">
-                    {img ? (
-                      <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center gap-3">
-                        <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center">
-                          <svg className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
-                        </div>
-                        <span className="text-white/40 text-xs">Click to view PDF</span>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="px-4 py-2 rounded-xl bg-white/20 backdrop-blur-sm text-white text-xs font-bold border border-white/30">
-                        {img ? "🔍 View Full" : "📄 Open PDF"}
-                      </span>
-                    </div>
-                    {/* Type badge top-left */}
-                    <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-lg text-xs font-bold border backdrop-blur-sm ${c.badge}`}>
-                      {type}
-                    </div>
-                    {/* Date top-right */}
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-sm text-white text-xs font-semibold">
-                      {date}
-                    </div>
+                  {/* Icon */}
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-violet-500/30 transition-all duration-300">
+                    {isPdf
+                      ? <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                      : <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    }
                   </div>
 
                   {/* Info */}
-                  <div className="p-4">
-                    <h3 className="text-sm font-bold text-white leading-snug mb-1">{name}</h3>
-                    <p className="text-slate-400 text-xs mb-3">{org}</p>
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                      <span className="text-emerald-400 text-xs font-semibold">Verified</span>
-                    </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white font-semibold text-sm sm:text-base truncate group-hover:text-violet-300 transition-colors duration-200">{name}</p>
+                    <p className="text-slate-500 text-xs mt-0.5 truncate">{org}</p>
+                  </div>
+
+                  {/* Right side */}
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <span className={`hidden sm:block px-2.5 py-1 rounded-lg text-xs font-semibold border ${colorMap[color]}`}>{type}</span>
+                    <span className="text-slate-500 text-xs">{date}</span>
+                    <svg className="w-4 h-4 text-slate-600 group-hover:text-violet-400 group-hover:translate-x-1 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   </div>
                 </div>
               );
