@@ -524,34 +524,37 @@ export default function App() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { name:"DIGISAMAKSH Internship",      org:"DIGISAMAKSH",          year:"2025", img: certCerti,       color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
-              { name:"Web Development Certificate", org:"DIGISAMAKSH",          year:"2025", img: certCertificate, color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
-              { name:"Machine Learning Program",    org:"MLP Institute",        year:"2024", img: certMLP,        color:"from-emerald-500/20 to-teal-500/20", border:"border-emerald-500/25" },
-              { name:"Software Development",        org:"SDE Program",          year:"2024", img: certSDE,        color:"from-orange-500/20 to-amber-500/20",  border:"border-orange-500/25" },
-            ].map(({ name, org, year, img, color, border }) => (
+              { name:"DIGISAMAKSH Internship",      org:"DIGISAMAKSH",           year:"2025", img: certCerti,       pdf: null,                    color:"from-violet-500/20 to-purple-500/20", border:"border-violet-500/25" },
+              { name:"Web Development Certificate", org:"DIGISAMAKSH",           year:"2025", img: certCertificate, pdf: null,                    color:"from-blue-500/20 to-indigo-500/20",  border:"border-blue-500/25" },
+              { name:"Machine Learning Program",    org:"MLP Institute",         year:"2024", img: certMLP,         pdf: null,                    color:"from-emerald-500/20 to-teal-500/20", border:"border-emerald-500/25" },
+              { name:"Software Development",        org:"SDE Program",           year:"2024", img: certSDE,         pdf: null,                    color:"from-orange-500/20 to-amber-500/20", border:"border-orange-500/25" },
+              { name:"GeeksforGeeks Certificate",   org:"GeeksforGeeks",         year:"2024", img: null,            pdf: "/cert-gfg.pdf",         color:"from-green-500/20 to-lime-500/20",   border:"border-green-500/25" },
+              { name:"Coursera Certificate",        org:"Coursera",             year:"2024", img: null,            pdf: "/cert-coursera.pdf",    color:"from-blue-400/20 to-cyan-500/20",   border:"border-blue-400/25" },
+              { name:"Infosys Springboard",         org:"Infosys",              year:"2024", img: null,            pdf: "/cert-infosys.pdf",     color:"from-indigo-500/20 to-blue-600/20", border:"border-indigo-500/25" },
+              { name:"Blockchain Certificate",      org:"Blockchain Program",   year:"2024", img: null,            pdf: "/cert-blockchain.pdf",  color:"from-amber-500/20 to-yellow-500/20", border:"border-amber-500/25" },
+            ].map(({ name, org, year, img, pdf, color, border }) => (
               <div
                 key={name}
                 className={`group rounded-2xl bg-gradient-to-br ${color} border ${border} overflow-hidden hover:-translate-y-2 transition-all duration-300 cursor-pointer`}
-                onClick={() => window.open(img, "_blank")}
+                onClick={() => window.open(img || pdf, "_blank")}
               >
-                {/* Certificate Image Preview */}
                 <div className="relative h-40 overflow-hidden bg-black/20">
-                  <img
-                    src={img}
-                    alt={name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {img ? (
+                    <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+                      <svg className="w-10 h-10 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                      <span className="text-white/50 text-xs font-medium">PDF Certificate</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute top-2 right-2 px-2 py-1 rounded-lg bg-black/50 backdrop-blur-sm text-xs text-white font-semibold">
-                    {year}
-                  </div>
+                  <div className="absolute top-2 right-2 px-2 py-1 rounded-lg bg-black/50 backdrop-blur-sm text-xs text-white font-semibold">{year}</div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="px-3 py-1.5 rounded-xl bg-white/20 backdrop-blur-sm text-white text-xs font-semibold border border-white/30">
-                      View Certificate
+                      {img ? "View Certificate" : "Open PDF"}
                     </div>
                   </div>
                 </div>
-                {/* Info */}
                 <div className="p-4">
                   <h3 className="text-sm font-bold text-white leading-snug mb-1">{name}</h3>
                   <p className="text-slate-400 text-xs">{org}</p>
