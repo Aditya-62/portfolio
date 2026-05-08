@@ -528,15 +528,15 @@ export default function App() {
           <div className="flex flex-col gap-3">
             {[
               { name: "IT Internship Completion",        org: "DIGISAMAKSH Pvt. Ltd.",            date: "June – Aug 2025", type: "Internship", color: "violet", src: certInternship, isPdf: false },
-              { name: "AWS Cloud Technical Essentials",  org: "Coursera × Amazon Web Services",    date: "2024",           type: "Cloud",      color: "orange", src: "/cert-aws.pdf",     isPdf: true  },
-              { name: "Angular Course Completion",       org: "Infosys Springboard",               date: "2024",           type: "Frontend",   color: "red",    src: "/cert-angular.pdf", isPdf: true  },
-              { name: "GeeksforGeeks CUTM Training",     org: "GeeksforGeeks (16-week Program)",   date: "2024",           type: "Training",   color: "green",  src: "/cert-gfg.pdf",     isPdf: true  },
-              { name: "Mastering Web3",                  org: "UNICI Institute for the Future",    date: "2024",           type: "Blockchain", color: "amber",  src: "/cert-web3.pdf",    isPdf: true  },
-              { name: "AI Agents with UiPath",           org: "GeeksforGeeks × UiPath Workshop",   date: "2024",           type: "AI / ML",    color: "blue",   src: certUiPath,        isPdf: false },
-              { name: "Docker & Kubernetes",             org: "Scaler Masterclass",                date: "2024",           type: "DevOps",     color: "cyan",   src: certDocker,        isPdf: false },
-              { name: "ML Ops Fundamentals",             org: "Scaler Masterclass",                date: "2024",           type: "AI / ML",    color: "purple", src: certMLOps,         isPdf: false },
-              { name: "Microsoft SDE Masterclass",       org: "Scaler Masterclass",                date: "2024",           type: "Career",     color: "indigo", src: certSDE,           isPdf: false },
-              { name: "Viksit Bharat Young Leaders",     org: "Ministry of Youth Affairs & Sports",date: "2026",           type: "Leadership", color: "emerald",src: certVBYLD,         isPdf: false },
+              { name: "AWS Cloud Technical Essentials",  org: "Coursera × Amazon Web Services",    date: "2025",           type: "Cloud",      color: "orange", src: "/cert-aws.pdf",     isPdf: true  },
+              { name: "Angular Course Completion",       org: "Infosys Springboard",               date: "2026",           type: "Frontend",   color: "red",    src: "/cert-angular.pdf", isPdf: true  },
+              { name: "GeeksforGeeks CUTM Training",     org: "GeeksforGeeks (16-week Program)",   date: "2025",           type: "Training",   color: "green",  src: "/cert-gfg.pdf",     isPdf: true  },
+              { name: "Mastering Web3",                  org: "UNICI Institute for the Future",    date: "2026",           type: "Blockchain", color: "amber",  src: "/cert-web3.pdf",    isPdf: true  },
+              { name: "AI Agents with UiPath",           org: "GeeksforGeeks × UiPath Workshop",   date: "2025",           type: "AI / ML",    color: "blue",   src: certUiPath,        isPdf: false },
+              { name: "Docker & Kubernetes",             org: "Scaler Masterclass",                date: "2025",           type: "DevOps",     color: "cyan",   src: certDocker,        isPdf: false },
+              { name: "ML Ops Fundamentals",             org: "Scaler Masterclass",                date: "2025",           type: "AI / ML",    color: "purple", src: certMLOps,         isPdf: false },
+              { name: "Microsoft SDE Masterclass",       org: "Scaler Masterclass",                date: "2025",           type: "Career",     color: "indigo", src: certSDE,           isPdf: false },
+              { name: "Viksit Bharat Young Leaders",     org: "Ministry of Youth Affairs & Sports",date: "2025",           type: "Leadership", color: "emerald",src: certVBYLD,         isPdf: false },
             ].map(({ name, org, date, type, color, src, isPdf }) => {
               const colorMap = {
                 violet:  "text-violet-400  border-violet-500/20  bg-violet-500/10",
