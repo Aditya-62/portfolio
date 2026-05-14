@@ -135,15 +135,6 @@ const projects = [
     github: "https://github.com/Aditya-62/Movie-Titcket",
     live: "https://movie-app-liard-seven-41.vercel.app",
   },
-  {
-    title: "Kerala HealthCare",
-    desc: "Healthcare platform providing medical services, doctor listings, appointment booking and patient management.",
-    tags: ["HTML5", "CSS3", "JavaScript"],
-    gradient: "from-blue-500/25 via-cyan-500/15 to-teal-600/25",
-    icon: "🏥",
-    github: "https://github.com/Aditya-62/Kerla-HealthCare",
-    live: "https://kerla-health-care.vercel.app",
-  },
 ];
 
 export default function App() {
