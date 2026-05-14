@@ -88,22 +88,22 @@ function Typewriter({ words }) {
 
 /* ── Skills ── */
 const skills = [
-  { name: "React.js",   icon: "⚛️", color: "from-violet-500 to-blue-500" },
-  { name: "Angular",    icon: "🅰️", color: "from-red-500 to-rose-600" },
-  { name: "Node.js",    icon: "🟢", color: "from-emerald-500 to-green-600" },
-  { name: "Express.js", icon: "🚀", color: "from-slate-500 to-slate-700" },
-  { name: "AWS",        icon: "☁️", color: "from-amber-400 to-orange-500" },
-  { name: "Azure",      icon: "🔷", color: "from-blue-500 to-indigo-600" },
-  { name: "MongoDB",    icon: "🍃", color: "from-green-500 to-teal-600" },
-  { name: "DynamoDB",   icon: "⚡", color: "from-yellow-400 to-amber-500" },
-  { name: "MySQL",      icon: "🐬", color: "from-blue-400 to-cyan-500" },
-  { name: "HTML5",      icon: "🌐", color: "from-orange-500 to-red-500" },
-  { name: "CSS3",       icon: "🎨", color: "from-blue-400 to-violet-500" },
-  { name: "JavaScript", icon: "💛", color: "from-yellow-400 to-amber-500" },
-  { name: "GitHub",     icon: "🐙", color: "from-slate-500 to-slate-700" },
-  { name: "VS Code",    icon: "💙", color: "from-blue-500 to-indigo-600" },
-  { name: "Postman",    icon: "📮", color: "from-orange-400 to-red-500" },
-  { name: "Python",     icon: "🐍", color: "from-yellow-400 to-blue-500" },
+  { name: "React.js",   icon: "⚛️", color: "from-violet-500 to-blue-500",    cat: "Frontend" },
+  { name: "Angular",    icon: "🅰️", color: "from-red-500 to-rose-600",       cat: "Frontend" },
+  { name: "HTML5",      icon: "🌐", color: "from-orange-500 to-red-500",     cat: "Frontend" },
+  { name: "CSS3",       icon: "🎨", color: "from-blue-400 to-violet-500",    cat: "Frontend" },
+  { name: "JavaScript", icon: "💛", color: "from-yellow-400 to-amber-500",   cat: "Frontend" },
+  { name: "Node.js",    icon: "🟢", color: "from-emerald-500 to-green-600",  cat: "Backend"  },
+  { name: "Express.js", icon: "🚀", color: "from-slate-500 to-slate-700",    cat: "Backend"  },
+  { name: "Python",     icon: "🐍", color: "from-yellow-400 to-blue-500",    cat: "Backend"  },
+  { name: "AWS",        icon: "☁️", color: "from-amber-400 to-orange-500",   cat: "Cloud"    },
+  { name: "Azure",      icon: "🔷", color: "from-blue-500 to-indigo-600",    cat: "Cloud"    },
+  { name: "MongoDB",    icon: "🍃", color: "from-green-500 to-teal-600",     cat: "Database" },
+  { name: "DynamoDB",   icon: "⚡", color: "from-yellow-400 to-amber-500",   cat: "Database" },
+  { name: "MySQL",      icon: "🐬", color: "from-blue-400 to-cyan-500",      cat: "Database" },
+  { name: "GitHub",     icon: "🐙", color: "from-slate-500 to-slate-700",    cat: "Tools"    },
+  { name: "VS Code",    icon: "💙", color: "from-blue-500 to-indigo-600",    cat: "Tools"    },
+  { name: "Postman",    icon: "📮", color: "from-orange-400 to-red-500",     cat: "Tools"    },
 ];
 
 /* ── Projects ── */
@@ -463,24 +463,41 @@ export default function App() {
       <div className="gradient-divider"></div>
 
       {/* ================= SKILLS ================= */}
-      <section id="skills" className="py-32 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-
-          <div className="text-center mb-12 sm:mb-20">
-            <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">What I Know</p>
-            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Skills</h2>
+      <section id="skills" className="py-16 sm:py-32 px-4 sm:px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-3">What I Know</p>
+            <h2 className="text-4xl sm:text-5xl font-black section-title mb-8">Skills</h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5">
-            {skills.map(({ name, icon, color }) => (
-              <div key={name} className="skill-badge p-5 rounded-2xl bg-white/[0.03] border border-violet-500/10 text-center cursor-default">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-2xl mx-auto mb-3 shadow-lg`}>
-                  {icon}
+
+          <div className="space-y-8">
+            {[
+              { cat: "Frontend",  color: "text-violet-400", border: "border-violet-500/20", bg: "bg-violet-500/8"  },
+              { cat: "Backend",   color: "text-emerald-400",border: "border-emerald-500/20",bg: "bg-emerald-500/8" },
+              { cat: "Cloud",     color: "text-sky-400",    border: "border-sky-500/20",    bg: "bg-sky-500/8"    },
+              { cat: "Database",  color: "text-amber-400",  border: "border-amber-500/20",  bg: "bg-amber-500/8"  },
+              { cat: "Tools",     color: "text-rose-400",   border: "border-rose-500/20",   bg: "bg-rose-500/8"   },
+            ].map(({ cat, color, border, bg }) => (
+              <div key={cat} className="flex flex-col sm:flex-row sm:items-center gap-4">
+                {/* Category label */}
+                <div className="w-24 flex-shrink-0">
+                  <span className={`text-xs font-bold uppercase tracking-widest ${color}`}>{cat}</span>
                 </div>
-                <p className="font-semibold text-sm text-slate-300">{name}</p>
+                {/* Skill chips */}
+                <div className="flex flex-wrap gap-2">
+                  {skills.filter(s => s.cat === cat).map(({ name, icon }) => (
+                    <div
+                      key={name}
+                      className={`skill-badge flex items-center gap-2 px-4 py-2 rounded-xl border ${border} ${bg} cursor-default`}
+                    >
+                      <span className="text-base">{icon}</span>
+                      <span className="text-sm font-medium text-slate-200">{name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
