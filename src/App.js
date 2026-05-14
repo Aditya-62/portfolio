@@ -114,16 +114,7 @@ const projects = [
     tags: ["AWS S3", "DynamoDB", "KMS", "Node.js"],
     gradient: "from-violet-600/30 via-indigo-500/20 to-blue-600/30",
     icon: "🗄️",
-    github: "https://github.com/Aditya-62",
-    live: "",
-  },
-  {
-    title: "AI Based GD Platform",
-    desc: "Real-time AI powered group discussion platform with machine learning analysis and responsive frontend UI.",
-    tags: ["React.js", "Python", "ML", "WebSocket"],
-    gradient: "from-amber-500/25 via-orange-400/15 to-rose-500/25",
-    icon: "🤖",
-    github: "https://github.com/Aditya-62",
+    github: "https://github.com/Aditya-62/Smart-Storage-System",
     live: "",
   },
   {
@@ -132,15 +123,33 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript"],
     gradient: "from-emerald-500/25 via-teal-500/15 to-cyan-600/25",
     icon: "📚",
-    github: "https://github.com/Aditya-62",
-    live: "",
+    github: "https://github.com/Aditya-62/Intractive-Course-Dashboard",
+    live: "https://intractive-course-dashboard.vercel.app",
   },
   {
     title: "Movie Ticket Booking",
     desc: "Online movie ticket booking platform with seat selection, show timings, payment integration and booking history.",
-    tags: ["React.js", "Node.js", "MySQL", "Express.js"],
+    tags: ["HTML5", "CSS3", "JavaScript"],
     gradient: "from-rose-500/25 via-pink-500/15 to-fuchsia-600/25",
     icon: "🎬",
+    github: "https://github.com/Aditya-62/Movie-Titcket",
+    live: "https://movie-app-liard-seven-41.vercel.app",
+  },
+  {
+    title: "Kerala HealthCare",
+    desc: "Healthcare platform providing medical services, doctor listings, appointment booking and patient management.",
+    tags: ["HTML5", "CSS3", "JavaScript"],
+    gradient: "from-blue-500/25 via-cyan-500/15 to-teal-600/25",
+    icon: "🏥",
+    github: "https://github.com/Aditya-62/Kerla-HealthCare",
+    live: "https://kerla-health-care.vercel.app",
+  },
+  {
+    title: "AI Based GD Platform",
+    desc: "Real-time AI powered group discussion platform with machine learning analysis and responsive frontend UI.",
+    tags: ["React.js", "Python", "ML", "WebSocket"],
+    gradient: "from-amber-500/25 via-orange-400/15 to-rose-500/25",
+    icon: "🤖",
     github: "https://github.com/Aditya-62",
     live: "",
   },
@@ -638,7 +647,7 @@ export default function App() {
             <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">What I've Built</p>
             <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Projects</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects.map(({ title, desc, tags, gradient, icon, github, live }) => (
               <div key={title} className="project-card rounded-3xl bg-white/[0.03] border border-violet-500/15 overflow-hidden group">
                 <div className={`h-52 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
