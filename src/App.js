@@ -631,41 +631,6 @@ export default function App() {
 
       <div className="gradient-divider"></div>
 
-      {/* ================= CODING PROFILES ================= */}
-      <section className="py-32 px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-20">
-            <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">Coding Activity</p>
-            <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Coding Profiles</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {[
-              { platform:"LeetCode",   handle:"@aditya_pratap",  problems:"150+", rating:"1400+", icon:"🟨", color:"from-yellow-500/15 to-orange-500/15", border:"border-yellow-500/25", url:"https://leetcode.com" },
-              { platform:"HackerRank", handle:"@sadityapratap",  problems:"200+", rating:"5★",    icon:"🟩", color:"from-green-500/15 to-emerald-500/15", border:"border-green-500/25",  url:"https://hackerrank.com" },
-              { platform:"GitHub",     handle:"@Aditya-62",      problems:"10+",  rating:"Repos", icon:"⬛", color:"from-slate-500/15 to-gray-500/15",   border:"border-slate-500/25",  url:"https://github.com/Aditya-62" },
-            ].map(({ platform, handle, problems, rating, icon, color, border, url }) => (
-              <a key={platform} href={url} target="_blank" rel="noopener noreferrer" className={`block p-7 rounded-3xl bg-gradient-to-br ${color} border ${border} backdrop-blur-sm hover:-translate-y-2 transition-all duration-300 hover:shadow-lg`}>
-                <div className="text-4xl mb-4">{icon}</div>
-                <h3 className="text-xl font-bold mb-1">{platform}</h3>
-                <p className="text-slate-400 text-sm mb-4">{handle}</p>
-                <div className="flex gap-4">
-                  <div>
-                    <p className="text-2xl font-black text-white">{problems}</p>
-                    <p className="text-slate-500 text-xs">Problems</p>
-                  </div>
-                  <div>
-                    <p className="text-2xl font-black text-amber-400">{rating}</p>
-                    <p className="text-slate-500 text-xs">Rating</p>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="gradient-divider"></div>
-
       {/* ================= PROJECTS ================= */}
       <section id="projects" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
