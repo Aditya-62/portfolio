@@ -1,50 +1,58 @@
 import { useEffect, useRef } from "react";
 
 export default function CustomCursor() {
-  const dotRef   = useRef(null);
-  const ringRef  = useRef(null);
-  const pos      = useRef({ x: 0, y: 0 });
-  const ring     = useRef({ x: 0, y: 0 });
-  const raf      = useRef(null);
+  const cursorRef = useRef(null);
 
   useEffect(() => {
+    // Only show on desktop
+    if (window.matchMedia("(hover: none)").matches) return;
+
     const move = (e) => {
-      pos.current = { x: e.clientX, y: e.clientY };
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
+        cursorRef.current.style.opacity = "1";
       }
     };
 
-    const animate = () => {
-      ring.current.x += (pos.current.x - ring.current.x) * 0.12;
-      ring.current.y += (pos.current.y - ring.current.y) * 0.12;
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${ring.current.x - 20}px, ${ring.current.y - 20}px)`;
+    const onEnter = () => {
+      if (cursorRef.current) {
+        cursorRef.current.style.width = "12px";
+        cursorRef.current.style.height = "12px";
+        cursorRef.current.style.background = "#a855f7";
       }
-      raf.current = requestAnimationFrame(animate);
     };
 
-    const onEnter = () => { if (ringRef.current) ringRef.current.style.transform += " scale(1.8)"; };
-    const onLeave = () => { if (ringRef.current) ringRef.current.style.transform = ringRef.current.style.transform.replace(" scale(1.8)", ""); };
+    const onLeave = () => {
+      if (cursorRef.current) {
+        cursorRef.current.style.width = "8px";
+        cursorRef.current.style.height = "8px";
+        cursorRef.current.style.background = "#a855f7";
+      }
+    };
 
-    document.querySelectorAll("a, button, [data-hover]").forEach(el => {
+    document.querySelectorAll("a, button").forEach(el => {
       el.addEventListener("mouseenter", onEnter);
       el.addEventListener("mouseleave", onLeave);
     });
 
     window.addEventListener("mousemove", move);
-    raf.current = requestAnimationFrame(animate);
-
-    return () => {
-      window.removeEventListener("mousemove", move);
-      cancelAnimationFrame(raf.current);
-    };
+    return () => window.removeEventListener("mousemove", move);
   }, []);
 
   return (
-    <>
-      <div ref={dotRef}   style={{ position:"fixed", top:0, left:0, width:8,  height:8,  borderRadius:"50%", background:"#8b5cf6", pointerEvents:"none", zIndex:99999, transition:"transform 0.05s linear", boxShadow:"0 0 10px #8b5cf6, 0 0 20px #8b5cf6" }} />
-      <div ref={ringRef}  style={{ position:"fixed", top:0, left:0, width:40, height:40, borderRadius:"50%", border:"1.5px solid rgba(139,92,246,0.6)", pointerEvents:"none", zIndex:99998, transition:"transform 0.08s linear", boxShadow:"0 0 15px rgba(139,92,246,0.2)" }} />
-    </>
+    <div
+      ref={cursorRef}
+      style={{
+        position: "fixed", top: 0, left: 0,
+        width: 8, height: 8,
+        borderRadius: "50%",
+        background: "#a855f7",
+        pointerEvents: "none",
+        zIndex: 99999,
+        opacity: 0,
+        transition: "width 0.2s ease, height 0.2s ease, background 0.2s ease",
+        boxShadow: "0 0 8px rgba(168,85,247,0.8)",
+      }}
+    />
   );
 }

@@ -181,7 +181,7 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#030712] text-white overflow-hidden noise">
+    <div className="bg-[#0a0a0f] text-white overflow-hidden noise">
       <Loader />
       <CustomCursor />
       <ScrollProgress />
@@ -190,10 +190,9 @@ export default function App() {
 
       {/* ── Ambient orbs ── */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-15%] left-[-5%] w-[800px] h-[800px] bg-purple-600/10 blur-[200px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-rose-500/8 blur-[180px] rounded-full"></div>
-        <div className="absolute top-[35%] left-[50%] -translate-x-1/2 w-[500px] h-[500px] bg-teal-500/6 blur-[150px] rounded-full"></div>
-        <div className="absolute top-[10%] right-[20%] w-[300px] h-[300px] bg-sky-500/6 blur-[120px] rounded-full"></div>
+        <div className="absolute top-[-10%] left-[10%] w-[600px] h-[600px] bg-violet-700/8 blur-[160px] rounded-full"></div>
+        <div className="absolute bottom-[-5%] right-[5%] w-[500px] h-[500px] bg-cyan-500/6 blur-[140px] rounded-full"></div>
+        <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[400px] h-[400px] bg-violet-600/5 blur-[120px] rounded-full"></div>
       </div>
 
       {/* ================= NAVBAR ================= */}
