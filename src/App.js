@@ -164,9 +164,9 @@ export default function App() {
 
     emailjs.sendForm(
       "service_7r5p5vu",   // replace after EmailJS setup
-      "template_84oyt9l",  // replace after EmailJS setup
+      "template_jfotfd7",  // replace after EmailJS setup
       formRef.current,
-      "vx3-U-SX4AyFsEjAVK"    // replace after EmailJS setup
+      "x3-U-SX4AyFsEjAVK"    // replace after EmailJS setup
     )
     .then(() => {
       setFormStatus("success");
@@ -790,3 +790,4 @@ export default function App() {
     </div>
   );
 }
+
