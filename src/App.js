@@ -163,10 +163,10 @@ export default function App() {
     setFormStatus("sending");
 
     emailjs.sendForm(
-      "service_o30uho9",   // replace after EmailJS setup
-      "template_ivsnltc",  // replace after EmailJS setup
+      "service_7r5p5vu",   // replace after EmailJS setup
+      "template_84oyt9l",  // replace after EmailJS setup
       formRef.current,
-      "vsbSg9o2Uiv7aTOzv"    // replace after EmailJS setup
+      "vx3-U-SX4AyFsEjAVK"    // replace after EmailJS setup
     )
     .then(() => {
       setFormStatus("success");
@@ -709,8 +709,8 @@ export default function App() {
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input type="text"  name="from_name"  placeholder="Your Name"  required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
-                  <input type="email" name="from_email" placeholder="Your Email" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
+                  <input type="text"  name="name"    placeholder="Your Name"  required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
+                  <input type="email" name="email"   placeholder="Your Email" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="contact-input flex items-center rounded-2xl overflow-hidden">
@@ -718,7 +718,7 @@ export default function App() {
                     <input type="tel" name="from_phone" placeholder="Phone Number" maxLength={15} onInput={e => e.target.value = e.target.value.replace(/\D/g, "").slice(0, 15)} className="w-full px-3 py-3 bg-transparent outline-none placeholder-slate-700 text-white text-sm" />
                     <input type="hidden" name="country_code" value={countryCode} />
                   </div>
-                  <input type="text" name="subject" placeholder="Subject" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
+                  <input type="text" name="title" placeholder="Subject" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 text-sm" />
                 </div>
                 <textarea name="message" rows="4" placeholder="Your Message" required className="contact-input w-full px-4 py-3 rounded-2xl placeholder-slate-700 resize-none text-sm"></textarea>
 
