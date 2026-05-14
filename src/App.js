@@ -163,10 +163,10 @@ export default function App() {
     setFormStatus("sending");
 
     emailjs.sendForm(
-      "YOUR_SERVICE_ID",   // replace after EmailJS setup
-      "YOUR_TEMPLATE_ID",  // replace after EmailJS setup
+      "service_o30uho9",   // replace after EmailJS setup
+      "template_ivsnltc",  // replace after EmailJS setup
       formRef.current,
-      "YOUR_PUBLIC_KEY"    // replace after EmailJS setup
+      "vsbSg9o2Uiv7aTOzv"    // replace after EmailJS setup
     )
     .then(() => {
       setFormStatus("success");
