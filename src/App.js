@@ -144,15 +144,6 @@ const projects = [
     github: "https://github.com/Aditya-62/Kerla-HealthCare",
     live: "https://kerla-health-care.vercel.app",
   },
-  {
-    title: "AI Based GD Platform",
-    desc: "Real-time AI powered group discussion platform with machine learning analysis and responsive frontend UI.",
-    tags: ["React.js", "Python", "ML", "WebSocket"],
-    gradient: "from-amber-500/25 via-orange-400/15 to-rose-500/25",
-    icon: "🤖",
-    github: "https://github.com/Aditya-62",
-    live: "",
-  },
 ];
 
 export default function App() {
@@ -647,7 +638,7 @@ export default function App() {
             <p className="text-violet-400 text-xs font-bold tracking-[4px] uppercase mb-4">What I've Built</p>
             <h2 className="text-4xl sm:text-5xl font-black section-title mb-16">Projects</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {projects.map(({ title, desc, tags, gradient, icon, github, live }) => (
               <div key={title} className="project-card rounded-3xl bg-white/[0.03] border border-violet-500/15 overflow-hidden group">
                 <div className={`h-52 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
